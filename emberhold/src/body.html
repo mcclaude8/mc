@@ -1,0 +1,72 @@
+<div id="app" class="inside">
+  <canvas id="c" tabindex="0" aria-label="Emberhold Forge world"></canvas>
+  <div id="damageVig"></div>
+  <div id="bubbles"></div>
+
+  <div id="hud" hidden>
+    <div id="topbar">
+      <div id="dayPlate" class="plate">
+        <div id="dayRow"><div id="dayLabel">Day 1</div><span id="clock"><i></i><span id="clockVal">07:00</span></span></div>
+        <div id="regionLabel">Emberhold Village</div>
+        <div id="weatherLabel">Clear skies</div>
+      </div>
+      <div id="objective" class="plate"><span id="objText">Open the shop</span><button class="btn sm" id="objGo" type="button">Go</button></div>
+      <div class="tb-right">
+        <div id="goldBox" class="plate" title="Gold"><span class="coin"></span><span id="goldVal" class="num">0</span></div>
+        <button class="iconbtn" id="btnMap" type="button" aria-label="World map (M)"><svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14"/></svg></button>
+        <button class="iconbtn" id="btnJournal" type="button" aria-label="Journal (J)"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg></button>
+        <button class="iconbtn" id="btnBadges" type="button" aria-label="Honors"><svg viewBox="0 0 24 24"><path d="M12 2l7 3v6c0 5-3 8.5-7 11-4-2.5-7-6-7-11V5z"/><path d="M9 11l2 2 4-4"/></svg><b id="badgeCount" class="num">0</b></button>
+        <button class="iconbtn" id="btnSettings" type="button" aria-label="Settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg></button>
+      </div>
+    </div>
+    <div id="center"><div id="crosshair"></div><div id="prompt" class="plate" hidden></div>
+      <svg id="holdRing" viewBox="0 0 64 64"><circle class="bg" cx="32" cy="32" r="26"/><circle class="fg" id="holdFg" cx="32" cy="32" r="26" stroke-dasharray="163.4" stroke-dashoffset="163.4"/></svg>
+    </div>
+    <div id="stamina"><i></i></div>
+    <div id="dock" role="toolbar" aria-label="Workshop stations"></div>
+  </div>
+  <div id="mapWrap" hidden title="World map (M)"><canvas id="minimap" width="336" height="336"></canvas><span class="n">N</span><span class="loc" id="mmLoc"></span></div>
+  <div id="touchBtns"><button class="tb tb-use" id="tbUse" type="button">USE</button><button class="tb tb-jump" id="tbJump" type="button">JUMP</button><button class="tb" id="tbRun" type="button">RUN</button></div>
+
+  <div id="mg" hidden></div>
+
+  <div id="bhud" hidden>
+    <div id="trailbar" class="plate"><label><span id="trailName">Trail</span><b id="trailCount" class="num"></b></label><div class="hbar"><div class="fill" id="trailFill"></div></div></div>
+    <div id="bossbar" class="plate"><label><span>Vorgrath the Ashen Wyrm</span><b id="bossPct" class="num"></b></label><div class="hbar"><div class="fill" id="bossFill"></div></div></div>
+    <div id="aimHint" class="plate">Click the ground to throw · right-click or <kbd>Esc</kbd> to cancel</div>
+    <div id="bbtns"><button class="btn ghost sm" id="btnSpeed" type="button">Speed 1×</button><button class="btn ghost sm" id="btnRetreat" type="button">Sound retreat</button></div>
+    <div id="abils"></div>
+  </div>
+
+  <div id="toasts" aria-live="polite"></div>
+  <div id="joy"><i></i></div>
+  <div id="banner"><h1></h1><p></p></div>
+  <div id="fps" hidden></div>
+  <div id="modal" hidden><div class="panel" id="panel" role="dialog" aria-modal="true"></div></div>
+
+  <div id="title" hidden>
+    <div class="wrap">
+      <div>
+        <h1><span>The Smithy of</span>Emberhold Forge</h1>
+        <p class="tag">Smelt ore, pour molds, hammer blades and set gems by hand. Then step outside: mine the mountains, explore five wild lands, and march with the soldiers you armed against the monsters on the trails.</p>
+      </div>
+      <div class="menu">
+        <button class="btn big" id="btnContinue" type="button" hidden>Continue — Day 1</button>
+        <button class="btn big" id="btnNew" type="button">New Forge</button>
+        <button class="btn ghost" id="btnTitleSettings" type="button">Settings</button>
+        <div class="howto plate">
+          <b>Controls</b>
+          <ul>
+            <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk · <kbd>Shift</kbd> run · <kbd>Space</kbd> jump · mouse to look</li>
+            <li><kbd>E</kbd> or click to use, mine and talk · <kbd>V</kbd> switch camera · <kbd>M</kbd> map · <kbd>J</kbd> journal</li>
+            <li>At a station follow the instruction at the top. <kbd>Space</kbd> is the action key there</li>
+            <li>Touch: drag the left side to walk and the right side to look</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fade"></div>
+  <div id="loading">Stoking the forge…<div class="loadbar"><i id="loadFill"></i></div><span id="loadStep">Loading the 3D engine</span><small>If this message stays, your browser blocked the engine script or WebGL is turned off.</small></div>
+</div>
